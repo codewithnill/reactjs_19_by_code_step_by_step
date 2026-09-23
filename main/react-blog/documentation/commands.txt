@@ -1,0 +1,18 @@
+creating react app :
+
+# Step 1 — Navigate to your workspace
+cd "E:\XAMPP\htdocs\React 19 by Code Step By Step\reactjs_19_by_code_step_by_step\main"
+
+# Step 2 — Create the Vite React app
+npm create vite
+#   Project name:  react-blog
+#   Framework:     React
+#   Variant:       JavaScript
+#   Linter:        ESLint
+#   Install now:   Yes
+
+# Step 3 — Move into the project (server was auto-started by Vite)
+cd react-blog
+
+# Step 4 — Run dev server again manually (only if needed)
+npm run dev
