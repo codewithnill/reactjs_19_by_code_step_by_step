@@ -1,6 +1,9 @@
 function App() {
   return (
-    <h1>Apple</h1>
+    <div>
+      <h1>Apple</h1>
+      <h1>Apple 2</h1>
+    </div>
   )
 }
 
