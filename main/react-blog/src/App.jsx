@@ -1,4 +1,4 @@
-import Login from './user_component';
+import Login,{Profile,Setting} from './user_component';
 
 function App() {
   alert(sum());
@@ -8,6 +8,8 @@ function App() {
       <Fruit></Fruit>
       <Colors/>
       <Login/>
+      <Profile/>
+      <Setting/>
     </div>
     
   );
