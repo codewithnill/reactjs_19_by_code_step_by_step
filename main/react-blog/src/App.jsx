@@ -13,6 +13,8 @@ function App() {
     let x=10;
     let y=20;
 
+    let path = "https://d2a0gza273xfgz.cloudfront.net/467901/uploads/4e3a5110-db76-11ea-9736-111aa6094a2a_800_420.jpeg";
+
     function fruit() {
         return "Mango";
     }
@@ -52,6 +54,16 @@ function App() {
             <p>user: {userObj.name}, age: {userObj.age}, email: {userObj.email}</p>
 
             <p>{userArr[0]}, {userArr[1]}, {userArr[2]}</p>
+
+
+            
+
+            {/* <img src="https://d2a0gza273xfgz.cloudfront.net/467901/uploads/4e3a5110-db76-11ea-9736-111aa6094a2a_800_420.jpeg" alt="band"></img> */}
+
+            <img src={path} alt="band"></img>
+
+            <br/>
+            <input type="text" value={name} placeholder="Enter your name" />
         </div>
     )
 
