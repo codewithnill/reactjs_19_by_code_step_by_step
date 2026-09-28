@@ -9,11 +9,11 @@ function App() {
     //   </div>
     // );
 
-    // return createElement("div",{id:"rootdiv"}, "hello div");
+    return createElement("div",{id:"rootdiv"}, createElement("h1",{class:'h1tag'},"heading"));
 
-    return (
-      <div className="root_other">Hello other</div>
-    )
+    // return (
+    //   <div className="root_other">Hello other</div>
+    // )
 }
 
 export default App;
