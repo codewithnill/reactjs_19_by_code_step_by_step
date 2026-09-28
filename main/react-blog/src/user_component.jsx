@@ -23,3 +23,6 @@ export function Setting() {
 }
 
 export default Login
+
+
+export const user_key="1234567890"

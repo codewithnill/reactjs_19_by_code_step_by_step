@@ -1,4 +1,4 @@
-import Login,{Profile,Setting} from './user_component';
+import Login,{Profile,Setting,user_key} from './user_component';
 
 function App() {
   alert(sum());
@@ -10,6 +10,7 @@ function App() {
       <Login/>
       <Profile/>
       <Setting/>
+      <h1>{user_key}</h1>
     </div>
     
   );
