@@ -1,3 +1,5 @@
+import Login from './user_component';
+
 function App() {
   alert(sum());
   return (
@@ -5,6 +7,7 @@ function App() {
       <h1>first component {sum()}</h1>
       <Fruit></Fruit>
       <Colors/>
+      <Login/>
     </div>
     
   );
