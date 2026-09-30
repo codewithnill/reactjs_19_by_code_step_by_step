@@ -5,6 +5,7 @@
 //             <h1>User component for prop</h1>
 //             <h2>{name}</h2>
 //             <p>Age: {age}</p>
+//             <p>Email: {email}</p>
 //         </div>
 //     )
 // }
@@ -16,6 +17,7 @@ function UserForProp(props) {
             <h1>User component for prop</h1>
             <h2>{props.name}</h2>
             <p>Age: {props.age}</p>
+            <p>Email: {props.email}</p>
         </div>
     )
 }
