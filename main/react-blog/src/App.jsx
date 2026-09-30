@@ -1,8 +1,9 @@
+import { useState } from "react";
+
 function App() {
-  let fruit="apple";
-  const handleFruit=()=>{
-    fruit="banana";
-    console.log(fruit);
+  const [fruit, setFruit] = useState("apple");
+  const handleFruit = () => {
+    setFruit("banana");
   }
   return (
     <div>
