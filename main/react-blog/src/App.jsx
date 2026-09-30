@@ -1,14 +1,11 @@
-import { useState } from "react";
-
+import UserForProp from "./UserForProp";
 function App() {
-  const [count,setCount] = useState(0);
+  // let name ="NB Nill";
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={() => setCount(count + 1)}>Counter</button>
-      {
-        count == 0 ? <h1>Cond 0</h1> : count == 1 ? <h1>Cond 1</h1> : <h1>Cond 2</h1>
-      }
+      <h1>Props in react js</h1>
+      {/* <h2>{name}</h2> */}
+      <UserForProp name="NB Nill" />
     </div>
   );
 }
