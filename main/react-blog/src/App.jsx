@@ -5,7 +5,7 @@ function App() {
     <div>
       <h1>Props in react js</h1>
       {/* <h2>{name}</h2> */}
-      <UserForProp name="NB Nill" />
+      <UserForProp name="NB Nill" age={25} />
     </div>
   );
 }
