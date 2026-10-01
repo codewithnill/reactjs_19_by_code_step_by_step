@@ -1,14 +1,13 @@
-import Wrapper from './Wrapper';
+import { useState } from "react";
+
 function App() {
+  const [val,setVal] = useState("NB Nill");
   return (
     <div >
-      <Wrapper color="blue">  
-        <p>This is some content passed to the Wrapper component.</p>
-      </Wrapper>
-
-      <Wrapper>  
-        <h1>Hello admin</h1>
-      </Wrapper>
+      <h1>Get input field value</h1>
+      <input type="text" value={val} onChange={(event)=>setVal(event.target.value)} placeholder="Enter your name"/>
+      <button onClick={()=>setVal("")}>Clear</button>
+      <h1>{val}</h1>
     </div>
   );
 }
