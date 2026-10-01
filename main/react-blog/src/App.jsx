@@ -2,7 +2,7 @@ import Wrapper from './Wrapper';
 function App() {
   return (
     <div >
-      <Wrapper>  
+      <Wrapper color="blue">  
         <p>This is some content passed to the Wrapper component.</p>
       </Wrapper>
 
