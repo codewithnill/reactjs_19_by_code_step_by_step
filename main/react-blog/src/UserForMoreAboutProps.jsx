@@ -1,8 +1,8 @@
-function UserForMoreAboutProps() {
+function UserForMoreAboutProps({name="default"}) {
   return (
     <div>
-      <h1>UserForMoreAboutProps</h1>
-      
+      {/* <h1>UserForMoreAboutProps</h1> */} 
+      <p>Hi! {name}</p>
     </div>
   );
 }
