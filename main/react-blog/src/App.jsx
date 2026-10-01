@@ -1,14 +1,14 @@
-import UserForMoreAboutProps from './UserForMoreAboutProps';
+import Wrapper from './Wrapper';
 function App() {
   return (
-    <div>
-      <h1>Props in react js</h1>
-      <UserForMoreAboutProps name="Ali"/>
+    <div >
+      <Wrapper>  
+        <p>This is some content passed to the Wrapper component.</p>
+      </Wrapper>
 
-
-      <UserForMoreAboutProps name="Sam"/>
-      {/* suppose forgot to pass username */}
-      {/* <UserForMoreAboutProps /> */}
+      <Wrapper>  
+        <h1>Hello admin</h1>
+      </Wrapper>
     </div>
   );
 }
