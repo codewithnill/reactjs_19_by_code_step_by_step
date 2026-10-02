@@ -1,3 +1,4 @@
+import User from "./User";
 
 function App() {
   const user_data=[
@@ -29,82 +30,13 @@ function App() {
 
   return (
     <div>
-      <h1>Loop in jsx with map function</h1>
-
-
-      <table border="1">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Age</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-          {user_data.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.age}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-
-
-
-
-
-
-
-
-
-
-      <h1>Dummy data</h1>
-      <table border="1">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Nill</td>
-            <td>nbnill.hmlnmh@gmail.com</td>
-            <td>25</td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td>Nill</td>
-            <td>nbnill.hmlnmh@gmail.com</td>
-            <td>25</td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td>Nill</td>
-            <td>nbnill.hmlnmh@gmail.com</td>
-            <td>25</td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td>Nill</td>
-            <td>nbnill.hmlnmh@gmail.com</td>
-            <td>25</td>
-          </tr>
-        </tbody>
-      </table>
+      <h1>Reuse component in loop</h1>
+      {user_data.map((user) => (
+        <div key={user.id}>
+          <User user={user}/>
+        </div>
+      ))}
+      
     </div>
   );
 }
