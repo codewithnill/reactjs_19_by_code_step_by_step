@@ -7,7 +7,16 @@ function App() {
 
   useEffect(() => {
     callOnce(); // Call the function when the component is mounted
-  }, []); // Empty dependency array means this effect runs only once after the initial render
+  }, [data]); // Empty dependency array means this effect runs only once after the initial render
+  // [data] means this effect runs only when the data state changes
+  
+
+  counterFunction(); // Call the function on every render
+  function counterFunction() {
+    console.log("Counter function",counter);
+  }
+  
+  
   function callOnce() {
     console.log("This function is called only once when the component is mounted.");
   }
