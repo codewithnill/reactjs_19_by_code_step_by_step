@@ -1,9 +1,14 @@
-function Student({name}) {
+const Student = ({ student }) => {
     return(
         <div>
-            <hr></hr>
-            <h1>Student name : {name}</h1>
-            <hr></hr>
+            <h3>Students</h3>
+                  {student.map((student) => (
+                    <ul>
+                      <li>Name : {student.name}</li>
+                      <li>Age : {student.age}</li>
+                      <li>Email : {student.email}</li>
+                    </ul>
+                  ))}
         </div>
     )
 }
