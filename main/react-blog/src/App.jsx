@@ -1,9 +1,26 @@
+import UserProfile from "./Userprofile"
+
 function App() {
 
   return (
     <div>
-      <h1>Style with css modules</h1>
-
+      <h1>Style with css modules in react</h1>
+      <div style={{display:"flex",flexWrap:"wrap"
+      }}>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+        <UserProfile/>
+      </div>
+      
     </div>
   );
 }
