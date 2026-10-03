@@ -1,14 +1,32 @@
-import {useState} from "react";
+import { useEffect } from "react";
 
-const Counter = ()=> {
-    const [count, setCount] = useState(0);
-    const [rcounter, setRcounter] = useState(10);
+const Counter = ({ count, data }) => {
+    
+
+    const handleCounter=()=>{
+        console.log("handlecounter function called");   
+    };
+
+    const handleData=()=>{
+        console.log("handleData function called");
+    }
+
+    
+
+    useEffect(()=>{
+        handleCounter();
+        // handleData();
+    }, []); // this will run only once when the component is mounted
+
+    useEffect(()=>{
+        handleData();
+    }, [data]); // this will run only when the data prop changes
+    
+    // handleCounter();
     return (
         <div>
-            <h1>Counter:{count}</h1>
-            <h1>Reverse Counter:{rcounter}</h1>
-            <button onClick={()=>setCount(count+1)}>Update counter</button>
-            <button onClick={()=>setRcounter(rcounter-1)}>Update reverse counter</button>   
+            <h1>Counter value : {count}</h1> 
+            <h1>Data value : {data}</h1> 
         </div>
     );
 }
