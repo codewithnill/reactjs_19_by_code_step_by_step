@@ -1,37 +1,58 @@
 import { useRef } from "react";
 
 function App() {
+
+
+
+  const userRef=useRef();
+  const passwordRef=useRef();
   
-  const inputRef=useRef(null);
-  const h1Ref=useRef(null);
-  const inputHandler=()=>{
-    inputRef.current.focus();
-    inputRef.current.style.color='red';
-    inputRef.current.placeholder="enter password";
-    inputRef.current.value="123";
+  const handleForm=(event)=>{
+    // console.log(event)
+    event.preventDefault();
+    const user=document.querySelector("#user").value;
+    console.log(user);
+    const password=document.querySelector("#pasword").value;
+    console.log(password);
   }
 
-  const toggleHandler=()=>{
-    if(inputRef.current.style.display!='none') {
-      inputRef.current.style.display='none'
-    } else {
-      inputRef.current.style.display='inline'
-    }
-  }
 
-  const h1Handler=()=>{
-    h1Ref.current.style.color='green';
+  const handleFormRef=(event)=>{
+    event.preventDefault();
+    const user=userRef.current.value;
+    const password=passwordRef.current.value;
+    console.log("handleFormRef",user,password);
+    
   }
 
   return (
     <div>
-      <h1>Styled component with react js</h1>
-      <input ref={inputRef} type="text" placeholder="Enter a username"></input>
-      <button onClick={toggleHandler}>Toggle</button>
-      <button onClick={inputHandler}>Focus on input field</button>
-      <h1 ref={h1Ref}>Hello world</h1>
-      <button onClick={h1Handler}>Handler</button>
+      <h1>uncontroller component</h1>
+      <form action="" method="post" onSubmit={handleForm}>
+          <input type="text" id="user" placeholder="enter user name"></input>
+          <br></br>
+          <input type="password" id="password" placeholder="enter password"></input>
+          <br></br>
+          <button>Submit</button>
+      </form>
+     
+      
+
+
+      <hr></hr>
+    <h1>Uncontrolled component with useRef</h1>
+      <form action=""  method="post" onSubmit={handleFormRef}>
+        <input type="text" ref={userRef} id="userRef" placeholder="enter user name"></input>
+        <br></br>
+        <input type="password" ref={passwordRef} id="passwordRef" placeholder="enter password"></input>
+        <br></br>
+        <button>Submit with ref</button>
+      </form>
+      
+
     </div>
+
+    
   );
 }
 
