@@ -1,4 +1,4 @@
-let count=0;
+let guest=0;
 
 function App() {
   
@@ -6,25 +6,19 @@ function App() {
   return (
     <div>
       <h1>Keeping components pure</h1>
-      {/* wrong approach */}
-      {/* <Counter/>
-      <Counter/>
-      <Counter/>
-      <Counter/> */}
-
-
-      {/* correct approach using props */}
-      <Counter count={1}/>
-      <Counter count={2}/>
-      <Counter count={3}/>
-      <Counter count={4}/>
+      <Cup guest={1}/>
+      <Cup guest={2}/>
+      <Cup guest={3}/>
     </div>
   )
 }
 
-const Counter=({count})=>{
-  count=count+1;
-  return <h1>Counter {count}</h1>
+const Cup=({guest})=>{
+  // guest=guest+1;
+  return (
+    <h1>We have {guest} guest and we have to make {guest} cup of tea</h1>
+  )
 }
+
 
 export default App;
