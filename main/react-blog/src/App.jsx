@@ -1,49 +1,29 @@
 import {useState} from "react";
 function App() {
-  
-  // const [name,setName]=useState('NB Nill')
 
-  const [data,setData]=useState(
-    {
-      name: 'Nill',
-      address:{
-        city : "Dhaka",
-        country:'BD'
-      }
-    }
-  )
+  // const [name,setName]=useState("Nill")
+  const [data,setData]=useState(['Nill','Anil','Sidhu'])
 
-  const handleName=(val)=>{
-    data.name=val
+
+  const handleUser=(name)=>{
+    data[data.length-1]=name;
     console.log(data);
-    // setName("Nill")
-
-    setData({...data})
-  }
-
-
-  const handleCity=(city)=>{
-    data.address.city=city
-    console.log(data);
-    // setName("Nill")
-
-    setData({...data,address:{...data.address,city}})
+    setData([...data])
   }
 
 
   return (
     <div>
-      <h1>Updating objects in state</h1>
-      
-      {/* <button onClick={handleName}>Update name</button> */}
-      <input type="text" placeholder="update name" onChange={(event)=>handleName(event.target.value)}></input>
+      <h1>Updating array in state</h1>
+      {/* <h2>{name}</h2>
+      <button onClick={()=>setName("NB Nill")}>Update name</button> */}
 
-
-      <input type="text" placeholder="update city" onChange={(event)=>handleCity(event.target.value)}></input>
-
-      <h2>Name : {data.name}</h2>
-      <h2>City : {data.address.city}</h2>
-      <h2>Country : {data.address.country}</h2>
+      <input type="text" placeholder="Enter last username : " onChange={(e)=>handleUser(e.target.value)}></input>
+      {
+        data.map((item,index)=>(
+          <h3 key={index}>{item}</h3>
+        ))
+      }
     </div>
   );
 }
