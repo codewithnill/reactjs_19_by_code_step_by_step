@@ -1,53 +1,55 @@
-import {useState} from "react";
+import {useActionState} from "react";
 function App() {
 
-  // const [name,setName]=useState("Nill")
-  const [data,setData]=useState(['Nill','Anil','Sidhu'])
+
+  const handleSubmit=async(previousData,formData)=>{
+    let name=formData.get('name');
+    let password=formData.get('password');
 
 
-  const [dataDetails,setDataDetails]=useState([
-    {name:'Nill',age:'30'},
-    {name:'Anil',age:'40'},
-    {name:'Sidhu',age:'50'},
-  ])
+    await new Promise(res=>setTimeout(res,2000))
+    // console.log("handlesubmit called",name,password);
 
-
-  const handleUser=(name)=>{
-    data[data.length-1]=name;
-    console.log(data);
-    setData([...data])
+    if(name && password) {
+      return {message:'Data submitted',name,password}
+    } else {
+      return {error:'Failed to submit. Enter proper data',name,password}
+    }
   }
 
 
-
-  const handleAge=(age)=>{
-    dataDetails[dataDetails.length-1].age=age;
-    console.log(dataDetails);
-    setDataDetails([...dataDetails])
-  }
+  
 
 
+  const [data,action,pending]=useActionState(handleSubmit,undefined)
+  console.log(data);
   return (
     <div>
-      <h1>Updating array in state</h1>
-      {/* <h2>{name}</h2>
-      <button onClick={()=>setName("NB Nill")}>Update name</button> */}
+      <h1>useActionState hook in react js</h1>
+      <form action={action}>
+        <input defaultValue={data?.name} type="text" placeholder="Enter name" name="name"></input>
+        <br></br>
 
-      <input type="text" placeholder="Enter last username : " onChange={(e)=>handleUser(e.target.value)}></input>
+        <input defaultValue={data?.password} type="password" placeholder="Enter password" name="password"></input>
+        <br></br>
+
+        <button disabled={pending}>Submit data</button>
+        <br></br>
+
+        
+      </form>
+
+
       {
-        data.map((item,index)=>(
-          <h3 key={index}>{item}</h3>
-        ))
+          data?.error && <span style={{color:'red'}}>{data?.error}</span>
+      }
+      {
+        data?.message&& <span style={{color:'green'}}>{data?.message}</span>
       }
 
-      <hr></hr>
+      <h3>Name : {data?.name}</h3>
+      <h3>Password : {data?.password}</h3>
 
-      <input type="text" placeholder="Enter last user age : " onChange={(e)=>handleAge(e.target.value)}></input>
-      {
-        dataDetails.map((item,index)=>(
-          <h3 key={index}>{item.name},{item.age}</h3>
-        ))
-      }
     </div>
   );
 }
