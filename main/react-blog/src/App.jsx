@@ -20,10 +20,10 @@ function App() {
 
 
 function UserForm() {
-  const name=useId();
-  const password=useId();
-  const terms=useId();
-  const skills=useId();
+  const user=useId();
+  // const password=useId();
+  // const terms=useId();
+  // const skills=useId();
 
   
   
@@ -33,21 +33,21 @@ function UserForm() {
   return (
     <div>
       <form action="">
-        <label htmlFor={name}>Enter user name</label>
-        <input id={name} type="text" placeholder="Enter name"></input>
+        <label htmlFor={user+"name"}>Enter user name</label>
+        <input id={user+"name"} type="text" placeholder="Enter name"></input>
 
         <br></br>
-        <label htmlFor={password}>Enter user password</label>
-        <input id={password} type="text" placeholder="Enter password"></input>
+        <label htmlFor={user+"password"}>Enter user password</label>
+        <input id={user+"password"} type="text" placeholder="Enter password"></input>
 
 
         <br></br>
-        <label htmlFor={terms}>Enter user terms</label>
-        <input id={terms} type="checkbox" placeholder="Enter terms"></input>
+        <label htmlFor={user+"terms"}>Enter user terms</label>
+        <input id={user+"terms"} type="checkbox" placeholder="Enter terms"></input>
 
         <br></br>
-        <label htmlFor={skills}>Enter user skills</label>
-        <input id={skills} type="text" placeholder="Enter skills"></input>
+        <label htmlFor={user+"skills"}>Enter user skills</label>
+        <input id={user+"skills"} type="text" placeholder="Enter skills"></input>
 
       </form>
 
