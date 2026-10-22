@@ -6,8 +6,8 @@
 }
 
 body{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 .header ul {
@@ -15,7 +15,7 @@ body{
     list-style-type: none;
     margin: auto;
     justify-content: space-around;
-    width: 200px;
+    width: 300px;
 }
 
 
@@ -23,11 +23,17 @@ body{
     padding: 10px;
 }
 
-.header link h2{
+.header .link h2{
     margin: 0;
 }
 
-.header link{
+.header .link{
     text-decoration: none;
     font-size: 20px;
+}
+
+.college .link{
+    text-decoration: none;
+    font-size: 20px;
+    margin: 10px;
 }
