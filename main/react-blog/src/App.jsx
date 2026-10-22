@@ -1,21 +1,26 @@
-import { BrowserRouter,Routes,Route,Link } from "react-router";
+import {Route,Routes} from 'react-router'
+import Home from './Home.jsx'
+import About from './About.jsx'
+import Login from './Login.jsx'
+import Navbar from './Navbar.jsx';
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
 
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+      {/* <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/login">Login</Link> */}
 
 
-        <Routes>
-          <Route path="/" element={<h1>Home</h1>}></Route>
-          <Route path="/about" element={<h1>About</h1>}></Route>
-          <Route path="/contact" element={<h1>Contact</h1>}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Navbar/>
+
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+      </Routes>
+      {/* <h1>Basic pages with react routing</h1> */}
     </div>
   );
 }
