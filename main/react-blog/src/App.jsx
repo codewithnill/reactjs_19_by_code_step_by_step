@@ -12,13 +12,19 @@ import College_details_for_nested_navigation from './College_details_for_nested_
 function App() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
+
+        <Route element={<Navbar />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+
+
+        
         <Route path="/college" element={<College_for_nested_navigation />}>
-          <Route path="student" element={<Student_for_nested_navigation />} />
+          <Route index element={<Student_for_nested_navigation />} />
 
           <Route path="department" element={<Dept_for_nested_navigation />} />
 
