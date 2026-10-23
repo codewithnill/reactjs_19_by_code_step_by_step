@@ -17,18 +17,6 @@
       "age": 5,
       "gender": "male",
       "id": "1CLPdkm4VQw"
-    },
-    {
-      "name": "Jenny",
-      "age": 20,
-      "gender": "female",
-      "id": "MCs7DbNsc8w"
-    },
-    {
-      "name": "Harry",
-      "age": "99",
-      "gender": "male",
-      "id": "tVrAKjGRu_U"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

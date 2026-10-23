@@ -7,19 +7,40 @@ export default function UserList2() {
   const [userData,setUserData]=useState([])
   const [loading,setLoading]=useState(false);
 
+  const url="http://localhost:3000/users";
+
   useEffect(()=>{
     setLoading(true);
     getUserData();
   },[])
  
   const getUserData=async()=>{
-    const url="http://localhost:3000/users";
+    // const url="http://localhost:3000/users";
     let response=await fetch(url);
     response=await response.json();
     console.log(response);
     setUserData(response);
     setLoading(false);
   }
+
+
+
+  const deleteUser=async(id)=>{
+    // const url="http://localhost:3000/users";
+    let response=await fetch(url+"/"+id,{method:'delete'});
+    response=await response.json();
+
+    if(response) {
+        alert("record deleted");
+        getUserData();
+    }
+    // console.log(response);
+    // setUserData(response);
+    // setLoading(false);
+  }
+
+
+
 
   return (
     <div>
@@ -28,6 +49,7 @@ export default function UserList2() {
         <li>Name</li>
         <li>Age</li>
         <li>Gender</li>
+        <li>Action</li>
       </ul>
 
 
@@ -43,6 +65,7 @@ export default function UserList2() {
             <li>{user.name}</li>
             <li>{user.age}</li>
             <li>{user.gender}</li>
+            <li><button onClick={()=>deleteUser(user.id)} className="w-full rounded bg-blue-700 px-4 py-2 font-semibold text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Delete user</button></li>
           </ul>
         ))
       }
