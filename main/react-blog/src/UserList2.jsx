@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import './css/user_for_api.css'
+import { useNavigate } from "react-router";
 
 export default function UserList2() {
 
   const [userData,setUserData]=useState([])
   const [loading,setLoading]=useState(false);
+  const navigate=useNavigate();
 
   const url="http://localhost:3000/users";
 
@@ -42,6 +44,13 @@ export default function UserList2() {
 
 
 
+  const editUser=(id)=>{
+    navigate("/edit/"+id)
+  }
+
+
+
+
   return (
     <div>
 
@@ -66,6 +75,9 @@ export default function UserList2() {
             <li>{user.age}</li>
             <li>{user.gender}</li>
             <li><button onClick={()=>deleteUser(user.id)} className="w-full rounded bg-blue-700 px-4 py-2 font-semibold text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Delete user</button></li>
+
+
+            <li><button onClick={()=>editUser(user.id)} className="w-full rounded bg-blue-700 px-4 py-2 font-semibold text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Edit user</button></li>
           </ul>
         ))
       }
