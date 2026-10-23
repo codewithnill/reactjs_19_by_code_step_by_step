@@ -1,41 +1,53 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import './css/user_for_api.css'
 
 function App() {
-  const [usersData,setUsersData]=useState([]);
+
+  const [userData,setUserData]=useState([])
+  const [loading,setLoading]=useState(false);
+
   useEffect(()=>{
-    getUsersData();
+    setLoading(true);
+    getUserData();
   },[])
-
-
-  async function getUsersData() {
-    const url="https://dummyjson.com/users";
+ 
+  const getUserData=async()=>{
+    const url="http://localhost:3000/users";
     let response=await fetch(url);
     response=await response.json();
-
-    setUsersData(response.users);
+    console.log(response);
+    setUserData(response);
+    setLoading(false);
   }
-
-  console.log(usersData);
-
 
   return (
     <div>
-      <h1>Fetch data from API</h1>
-      <ul className="user-list user-list-head">
-        <li>First name</li>
-        <li>Last name</li>
-        <li>Email</li>
+      <h1>Integrate JSON server API and loader</h1>
 
+      <ul className="user-list user-list-head list-disc list-inside">
+        <li>Name</li>
+        <li>Age</li>
+        <li>Gender</li>
       </ul>
+
+
+      {
+        loading?<h1>Data Loading...</h1>
+        :
+        userData.map((user) => (
+          // <h3 key={user.id}>{user.name}</h3>
+
+          // or
+
+          <ul className="user-list list-disc list-inside" key={user.id}>
+            <li>{user.name}</li>
+            <li>{user.age}</li>
+            <li>{user.gender}</li>
+          </ul>
+        ))
+      }
       
-        {usersData.map((user) => (
-        <ul className="user-list list-disc list-inside">
-          <li key={user.id}>{user.firstName}</li>
-          <li key={user.id}>{user.lastName}</li>
-          <li key={user.id}>{user.email}</li>
-        </ul>
-        ))}
     </div>
   );
 }
