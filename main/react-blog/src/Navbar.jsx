@@ -20,13 +20,13 @@ export default function Navbar() {
                     </li>
 
                     <li>
-                    <Link className="link" to="/login">
+                    <Link className="link" to="/in/user/login">
                         Login
                     </Link>
                     </li>
 
                     <li>
-                    <Link className="link" to="/about">
+                    <Link className="link" to="/in/user/about">
                         About
                     </Link>
                     </li>
