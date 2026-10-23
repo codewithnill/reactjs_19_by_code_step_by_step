@@ -1,4 +1,4 @@
-import { Link,Outlet } from "react-router";
+import { NavLink,Outlet } from "react-router";
 import "./header.css";
 
 export default function Navbar() {
@@ -6,49 +6,49 @@ export default function Navbar() {
         <div>
             <div className="header">
                 <div>
-                <Link className="link" to="/">
+                <NavLink className={({isActive})=> isActive?'link custom-active':'link'} to="/">
                     <h2>Logo</h2>
-                </Link>
+                </NavLink>
                 </div>
 
                 <div>
                 <ul>
                     <li>
-                    <Link className="link" to="/">
+                    <NavLink className="link" to="/">
                         Home
-                    </Link>
+                    </NavLink>
                     </li>
 
                     <li>
-                    <Link className="link" to="/in/user/login">
+                    <NavLink className="link" to="/in/user/login">
                         Login
-                    </Link>
+                    </NavLink>
                     </li>
 
                     <li>
-                    <Link className="link" to="/in/user/about">
+                    <NavLink className="link" to="/in/user/about">
                         About
-                    </Link>
+                    </NavLink>
                     </li>
 
                     <li>
-                    <Link className="link" to="/college">
+                    <NavLink className="link" to="/college">
                         College
-                    </Link>
+                    </NavLink>
                     </li>
 
 
                     <li>
-                    <Link className="link" to="/users">
+                    <NavLink className="link" to="/users">
                         Users
-                    </Link>
+                    </NavLink>
                     </li>
 
 
                     <li>
-                    <Link className="link" to="/users/list">
+                    <NavLink className="link" to="/users/list">
                         List
-                    </Link>
+                    </NavLink>
                     </li>
 
                 </ul>
