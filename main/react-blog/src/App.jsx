@@ -19,9 +19,11 @@ function App() {
 
         <Route element={<Navbar />}>
           <Route path="/" element={<Home />} />
-          <Route path="/users" element={<UserList />} />
-          <Route path="/users/:id" element={<UserDetails />} />
+          {/* <Route path="/users" element={<UserList />} /> */}
 
+          <Route path="/users/list?" element={<UserList />} />
+          {/* <Route path="/users/:id" element={<UserDetails />} /> */}
+          <Route path="/users/:id/:name?" element={<UserDetails />} />
 
 
           <Route path='in'>

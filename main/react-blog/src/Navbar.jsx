@@ -44,6 +44,13 @@ export default function Navbar() {
                     </Link>
                     </li>
 
+
+                    <li>
+                    <Link className="link" to="/users/list">
+                        List
+                    </Link>
+                    </li>
+
                 </ul>
                 </div>
             </div>
