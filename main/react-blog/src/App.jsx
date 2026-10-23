@@ -8,6 +8,8 @@ import College_for_nested_navigation from './College_for_nested_navigation.jsx'
 import Student_for_nested_navigation from './Student_for_nested_navigation.jsx'
 import Dept_for_nested_navigation from './Dept_for_nested_navigation.jsx'
 import College_details_for_nested_navigation from './College_details_for_nested_navigation.jsx'
+import UserList from './UserList.jsx'
+import UserDetails from './userDetails.jsx'
 
 function App() {
   return (
@@ -17,6 +19,10 @@ function App() {
 
         <Route element={<Navbar />}>
           <Route path="/" element={<Home />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="/users/:id" element={<UserDetails />} />
+
+
 
           <Route path='in'>
             <Route path='/in/user'>
