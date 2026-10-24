@@ -1,27 +1,40 @@
-import { Suspense } from 'react';
-import { lazy, useState } from 'react';
-// import UserForLazyLoading from './UserForLazyLoading'
+import { Suspense, use } from "react";
 
-const UserForLazyLoading = lazy(() => import('./UserForLazyLoading'));
+const fetchData=()=>fetch('https://dummyjson.com/users').then((response)=>response.json());
+const userResource=fetchData();
+
+
 function App() {
-  
 
-  const [load,setLoad]=useState(false);
 
 
   return (
     <div>
       
-      <h1>Lazy loading in react</h1>
-      {
-        // load? <UserForLazyLoading />:null
-        load? <Suspense fallback={<h3>loading....</h3>}><UserForLazyLoading /></Suspense> :null
-      }
-      <button onClick={()=>setLoad(true)} className="w-72 max-w-full rounded bg-blue-700 px-4 py-2 font-semibold text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Load User</button>
+      <h1>'use' API in react</h1>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Users userResource={userResource}/>
+      </Suspense>
       
-
+      
     </div>
   );
+}
+
+const Users=({userResource})=>{
+  // console.log(userResource);
+  const userData=use(userResource);
+  console.log(userData.users);
+  return(
+    <div>
+      <h1>Users list</h1>
+      {
+        userData?.users?.map((user)=>(
+          <h1>{user.firstName}</h1>
+        ))
+      }
+    </div>
+  )
 }
 
 
