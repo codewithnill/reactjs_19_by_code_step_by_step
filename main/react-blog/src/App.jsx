@@ -1,31 +1,55 @@
-import { NavLink, Route, Routes } from "react-router";
-import UserList2 from "./UserList2";
-import UserAdd from "./UserAdd";
-import UserEdit from "./UserEdit";
+import { useState } from "react";
+import './css/validation.css'
+
 
 function App() {
 
+  
+  const [name,setName]=useState('');
+  const [nameErr,setNameErr]=useState('');
+
+  const [password,setPassword]=useState('');
+  const [passwordErr,setPasswordErr]=useState('');
+
+  const handlename=(event)=>{
+    console.log(event.target.value);
+    
+    if(event.target.value.length>5) {
+      setNameErr("Please enter valid username. Only 5 characters.")
+    } else {
+      setNameErr()
+    }
+  }
+
+
+  const handlepassword=(event)=>{
+    let regex=/^[A-Z0-9]+$/i
+    console.log(event.target.value);
+    if(regex.test(event.target.value)) {
+      setPasswordErr()
+      
+    } else {
+      setPasswordErr("Please enter valid password. Only numbers and alphabets allowed.")
+    }
+  }
 
 
   return (
     <div>
-      <ul className="nav-list">
-        <li>
-          <NavLink to="/">List</NavLink>
-        </li>
+      <input className={`${nameErr ? 'error' : ''} w-72 max-w-full rounded border border-gray-500 bg-white px-3 py-2 text-black placeholder-gray-500 shadow-sm focus:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-200`} type="text" placeholder="Enter name" onChange={handlename} />
+      <br></br>
+      <span className="red-color">{nameErr && nameErr}</span>
+      <br></br>
+      <br></br>
 
-        <li>
-          <NavLink to="/add">Add Users</NavLink>
-        </li>
-      </ul>
-      {/* <h1>Make routes and pages for add user and user list ui</h1> */}
-      {/* <UserList2/> */}
-      <Routes>
-        <Route path="/" element={<UserList2/>}></Route>
-        <Route path="/add" element={<UserAdd/>}></Route>
-        <Route path="/edit/:id" element={<UserEdit/>}></Route>
-        
-      </Routes>
+
+      <input className={`${passwordErr ? 'error' : ''} w-72 max-w-full rounded border border-gray-500 bg-white px-3 py-2 text-black placeholder-gray-500 shadow-sm focus:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-200`} type="text" placeholder="Enter password" onChange={handlepassword}></input>
+      <br></br>
+      <span className="red-color">{passwordErr && passwordErr}</span>
+      <br></br>
+      <br></br>
+
+      <button disabled={passwordErr || nameErr} className="w-72 max-w-full rounded bg-blue-700 px-4 py-2 font-semibold text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Login</button>
 
     </div>
   );
